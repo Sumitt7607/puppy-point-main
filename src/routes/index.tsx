@@ -953,13 +953,11 @@ function Breeds() {
 
         <div className="mt-12 text-center">
           <a
-            href={WA}
-            target="_blank"
-            rel="noopener"
+            href={`tel:${PHONE}`}
             className="inline-flex items-center gap-2 rounded-full bg-[#4789b2] px-8 py-3.5 text-sm font-bold text-white shadow-md hover:bg-[#376f92] hover:scale-105 transition"
           >
-            <PawPrint className="h-4 w-4 text-[#ffc107]" />
-            Looking for Another Breed? Chat with us on WhatsApp
+            <Phone className="h-4 w-4 text-[#ffc107]" />
+            Looking for Another Breed? Call Us Now
           </a>
         </div>
       </div>
@@ -969,10 +967,6 @@ function Breeds() {
 
 /* Featured Puppy Box in The Barking Babies Layout */
 function FeaturedPuppyCard({ breed, index }: { breed: (typeof breeds)[number]; index: number }) {
-  const isVowel = /^[aeiou]/i.test(breed.name);
-  const message = `Hi! I am interested in ${isVowel ? "an" : "a"} ${breed.name} puppy from Puppy Palace.`;
-  const breedWaUrl = `https://wa.me/919555544416?text=${encodeURIComponent(message)}`;
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -1007,21 +1001,14 @@ function FeaturedPuppyCard({ breed, index }: { breed: (typeof breeds)[number]; i
           <span>Available</span>
         </div>
 
-        {/* Hover Quick Action Buttons */}
-        <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2 p-3">
+        {/* Hover Quick Action Button */}
+        <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-3">
           <a
             href={`tel:${PHONE}`}
-            className="flex-1 text-center rounded-lg bg-[#ffc107] text-slate-900 font-bold py-2 text-xs shadow-md hover:bg-[#ffd54f] transition"
+            className="w-full max-w-[150px] inline-flex items-center justify-center gap-2 rounded-lg bg-[#ffc107] text-slate-900 font-bold py-2.5 text-xs shadow-md hover:bg-[#ffd54f] transition"
           >
+            <Phone className="h-3.5 w-3.5" />
             Call Now
-          </a>
-          <a
-            href={breedWaUrl}
-            target="_blank"
-            rel="noopener"
-            className="flex-1 text-center rounded-lg bg-[#25D366] text-white font-bold py-2 text-xs shadow-md hover:bg-[#20ba59] transition"
-          >
-            WhatsApp
           </a>
         </div>
       </div>
@@ -1037,20 +1024,12 @@ function FeaturedPuppyCard({ breed, index }: { breed: (typeof breeds)[number]; i
           </p>
         </div>
 
-        <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+        <div className="mt-3.5 pt-3 border-t border-slate-100">
           <a
             href={`tel:${PHONE}`}
-            className="flex-1 inline-flex items-center justify-center gap-1 rounded-lg bg-slate-100 text-slate-800 text-xs font-bold py-2 hover:bg-[#4789b2] hover:text-white transition"
+            className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-[#4789b2] text-white text-xs sm:text-sm font-bold py-2.5 hover:bg-[#376f92] transition shadow-sm"
           >
-            <Phone className="h-3 w-3 text-[#4789b2] group-hover:text-white" /> Call
-          </a>
-          <a
-            href={breedWaUrl}
-            target="_blank"
-            rel="noopener"
-            className="flex-1 inline-flex items-center justify-center gap-1 rounded-lg bg-[#25D366] text-white text-xs font-bold py-2 hover:bg-[#20ba59] transition"
-          >
-            <MessageCircle className="h-3 w-3" /> WhatsApp
+            <Phone className="h-3.5 w-3.5 text-[#ffc107]" /> Call Now
           </a>
         </div>
       </div>
